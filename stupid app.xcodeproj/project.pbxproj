@@ -19,6 +19,9 @@
 		79C437992912B37F000DCF34 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C437952912B37F000DCF34 /* Game.swift */; };
 		79C4379A2912B37F000DCF34 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C437962912B37F000DCF34 /* Card.swift */; };
 		79C4379C2912B46E000DCF34 /* Flashcard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C4379B2912B46E000DCF34 /* Flashcard.swift */; };
+		79C437A12912C3B2000DCF34 /* game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C4379E2912C3B2000DCF34 /* game.swift */; };
+		79C437A22912C3B2000DCF34 /* menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C4379F2912C3B2000DCF34 /* menu.swift */; };
+		79C437A32912C3B2000DCF34 /* memo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C437A02912C3B2000DCF34 /* memo.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +39,9 @@
 		79C437952912B37F000DCF34 /* Game.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 		79C437962912B37F000DCF34 /* Card.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		79C4379B2912B46E000DCF34 /* Flashcard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Flashcard.swift; sourceTree = "<group>"; };
+		79C4379E2912C3B2000DCF34 /* game.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = game.swift; sourceTree = "<group>"; };
+		79C4379F2912C3B2000DCF34 /* menu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = menu.swift; sourceTree = "<group>"; };
+		79C437A02912C3B2000DCF34 /* memo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = memo.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +118,9 @@
 		79C4379D2912B4C4000DCF34 /* views */ = {
 			isa = PBXGroup;
 			children = (
+				79C4379E2912C3B2000DCF34 /* game.swift */,
+				79C437A02912C3B2000DCF34 /* memo.swift */,
+				79C4379F2912C3B2000DCF34 /* menu.swift */,
 				79B1E0CC2903F29500B449BB /* ContentView.swift */,
 			);
 			path = views;
@@ -189,9 +198,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				79C437A32912C3B2000DCF34 /* memo.swift in Sources */,
+				79C437A22912C3B2000DCF34 /* menu.swift in Sources */,
 				79C437982912B37F000DCF34 /* Game_instance.swift in Sources */,
 				79B1E0CD2903F29500B449BB /* ContentView.swift in Sources */,
 				79C4379C2912B46E000DCF34 /* Flashcard.swift in Sources */,
+				79C437A12912C3B2000DCF34 /* game.swift in Sources */,
 				79C437992912B37F000DCF34 /* Game.swift in Sources */,
 				79B1E0E329072B9800B449BB /* database.swift in Sources */,
 				79B1E0CB2903F29500B449BB /* stupid_appApp.swift in Sources */,

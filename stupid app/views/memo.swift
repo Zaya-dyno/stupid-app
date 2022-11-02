@@ -1,4 +1,4 @@
-import Foundation
+import SwiftUI
 
 struct memo_view: View {
     @Binding var cur_card: Card

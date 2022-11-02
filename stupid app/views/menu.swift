@@ -1,4 +1,4 @@
-import Foundation
+import SwiftUI
 
 struct menu_view: View{
     @Binding var range_txt: String

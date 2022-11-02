@@ -1,5 +1,5 @@
 
-import Foundation
+import SwiftUI
 
 struct game_view: View {
     @Binding var game_ins: Game_instance
