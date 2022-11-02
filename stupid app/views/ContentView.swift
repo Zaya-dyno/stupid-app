@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State var game = Game()
     @State var flashcard = Flashcard()
     @State var back:Color = .white
     @State var text_color:Color = .black
@@ -17,6 +16,7 @@ struct ContentView: View {
     @State var cur_card = Card()
     @State var range_txt = ""
     @State var game_ins:Game_instance = Game_instance()
+    @State var game = Game()
     
     func mod(_ a: Int, _ n: Int) -> Int {
         precondition(n > 0, "modulus must be positive")
@@ -24,26 +24,8 @@ struct ContentView: View {
         return r >= 0 ? r : r + n
     }
     
-    func pressed(ind: Int){
-        if !game_ins.guessed {
-            if ind == game_ins.correct {
-                back = .green
-                game.score += 1
-            } else {
-                back = .red
-                game.score = 0
-            }
-            game_ins.guessed = true
-        }
-    }
-    
     func update_card() {
         cur_card = Flashcard_function.get_card(flashcard, card_n)
-    }
-    
-    func start(){
-        game.next_game(game_ins: &game_ins)
-        back = .white
     }
     
     func start_memo() {
@@ -55,6 +37,7 @@ struct ContentView: View {
     func start_game() {
         game = Game(cards: flashcard)
         game_ins = Game_instance()
+        game.next_game(game_ins: &game_ins)
         state_app = "game"
     }
     
@@ -85,7 +68,7 @@ struct ContentView: View {
             if state_app == "menu" {
                 menu_view(range_txt:$range_txt,flashcard: $flashcard, set_range:set_range,start_memo: start_memo,start_game:start_game)
             } else if state_app == "game" {
-                game_view (game_ins: $game_ins, go_menu: go_menu, pressed: pressed, start: start)
+                game_view(game_ins: game_ins, game: game, go_menu: go_menu)
             } else if state_app == "memo" {
                 memo_view(cur_card: $cur_card, go_menu: go_menu, prev_card: prev_card, next_card: next_card)
             }

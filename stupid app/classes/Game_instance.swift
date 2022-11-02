@@ -1,4 +1,5 @@
 import Foundation
+import SwiftUI
 
 struct Game_instance {
     var card:Card
@@ -6,6 +7,7 @@ struct Game_instance {
     var correct:Int = 0
     var guessed = false
     var score = 0
+    var colors:[Color] = [.white,.white,.white,.white]
     
     init(){
         options = ["Option 1", "Option 2", "Option 3", "Option 4"]

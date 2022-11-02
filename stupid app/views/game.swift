@@ -2,10 +2,31 @@
 import SwiftUI
 
 struct game_view: View {
-    @Binding var game_ins: Game_instance
+    @State var game_ins: Game_instance
+    let game: Game
     let go_menu: () -> Void
-    let pressed: (Int) -> Void
-    let start: () -> Void
+    
+    func start() {
+        if !game_ins.guessed {
+            game_ins.score = 0
+        }
+        game.next_game(game_ins: &game_ins)
+        game_ins.colors = [.white,.white,.white,.white]
+    }
+    
+    func pressed(ind: Int) {
+        if game_ins.guessed {
+            return
+        }
+        game_ins.guessed = true
+        if game_ins.correct == ind {
+            game_ins.score += 1
+        } else {
+            game_ins.score = 0
+            game_ins.colors[ind] = .red
+        }
+        game_ins.colors[game_ins.correct] = .green
+    }
     
     var body: some View {
         Button(action: {go_menu()}){
@@ -41,5 +62,6 @@ struct game_choices: View {
             Text(game_ins.options[ind]).lineLimit(3)
         }
         .buttonStyle(BorderedButtonStyle())
+        .background(game_ins.colors[ind])
     }
 }
