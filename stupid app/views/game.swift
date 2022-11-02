@@ -17,28 +17,29 @@ struct game_view: View {
         char_show_view(card: $game_ins.card)
         Spacer()
         HStack (spacing:100){
-            Button(action: {pressed(0)}){
-                Text(game_ins.options[0]).lineLimit(3)
-            }
-            .buttonStyle(BorderedButtonStyle())
-            Button(action: {pressed(1)}){
-                Text(game_ins.options[1]).lineLimit(3)
-            }
-            .buttonStyle(BorderedButtonStyle())
+            game_choices(game_ins: $game_ins, ind: 0, pressed: pressed)
+            game_choices(game_ins: $game_ins, ind: 1, pressed: pressed)
         }
         HStack (spacing:100){
-            Button(action: {pressed(2)}){
-                Text(game_ins.options[2]).lineLimit(3)
-            }
-            .buttonStyle(BorderedButtonStyle())
-            Button(action: {pressed(3)}){
-                Text(game_ins.options[3]).lineLimit(3)
-            }
-            .buttonStyle(BorderedButtonStyle())
+            game_choices(game_ins: $game_ins, ind: 2, pressed: pressed)
+            game_choices(game_ins: $game_ins, ind: 3, pressed: pressed)
         }
         Spacer()
         Button(action: {start()}){
             Text("Start")
         }
+    }
+}
+
+struct game_choices: View {
+    @Binding var game_ins: Game_instance
+    let ind: Int
+    let pressed: (Int) -> Void
+    
+    var body: some View {
+        Button(action: {pressed(ind)}){
+            Text(game_ins.options[ind]).lineLimit(3)
+        }
+        .buttonStyle(BorderedButtonStyle())
     }
 }
