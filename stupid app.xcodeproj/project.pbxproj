@@ -73,7 +73,6 @@
 				79C437922912B2FC000DCF34 /* classes */,
 				79B1E0CA2903F29500B449BB /* stupid_appApp.swift */,
 				79B1E0E62907398A00B449BB /* hsk1.sql */,
-				79B1E0CC2903F29500B449BB /* ContentView.swift */,
 				79B1E0DE2904630700B449BB /* first100.csv */,
 				79B1E0CE2903F29600B449BB /* Assets.xcassets */,
 				79B1E0D02903F29600B449BB /* Preview Content */,
@@ -113,6 +112,7 @@
 		79C4379D2912B4C4000DCF34 /* views */ = {
 			isa = PBXGroup;
 			children = (
+				79B1E0CC2903F29500B449BB /* ContentView.swift */,
 			);
 			path = views;
 			sourceTree = "<group>";
