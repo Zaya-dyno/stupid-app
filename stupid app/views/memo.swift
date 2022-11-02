@@ -12,6 +12,7 @@ struct memo_view: View {
         }
         Spacer()
             .buttonStyle(BorderedButtonStyle())
+        Text(String(cur_card.id))
         char_show_view(card: $cur_card)
         Spacer()
             .frame(maxHeight: 10)
