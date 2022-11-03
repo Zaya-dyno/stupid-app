@@ -13,7 +13,7 @@ class database {
     var db: OpaquePointer?
     
     init (){
-        db = openDatabase("hsk1")
+        db = openDatabase("chars")
     }
     
     func sent_command_nodata(_ command:String?) {

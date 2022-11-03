@@ -18,20 +18,10 @@ struct ContentView: View {
     @State var game_ins:Game_instance = Game_instance()
     @State var game = Game()
     
-    func mod(_ a: Int, _ n: Int) -> Int {
-        precondition(n > 0, "modulus must be positive")
-        let r = a % n
-        return r >= 0 ? r : r + n
-    }
-    
-    func update_card() {
-        cur_card = Flashcard_function.get_card(flashcard, card_n)
-    }
-    
     func start_memo() {
         card_n = 0
+        cur_card = Flashcard_function.get_card(flashcard, card_n)
         state_app = "memo"
-        update_card()
     }
     
     func start_game() {
@@ -46,18 +36,6 @@ struct ContentView: View {
         Flashcard_function.update_range(&flashcard)
     }
     
-    func next_card() {
-        card_n += 1
-        card_n = mod(card_n,Flashcard_function.size(flashcard))
-        update_card()
-    }
-    
-    func prev_card() {
-        card_n -= 1
-        card_n = mod(card_n,Flashcard_function.size(flashcard))
-        update_card()
-    }
-    
     func go_menu(){
         back = .white
         state_app = "menu"
@@ -70,7 +48,7 @@ struct ContentView: View {
             } else if state_app == "game" {
                 game_view(game_ins: game_ins, game: game, go_menu: go_menu)
             } else if state_app == "memo" {
-                memo_view(cur_card: $cur_card, go_menu: go_menu, prev_card: prev_card, next_card: next_card)
+                memo_view(flashcard:$flashcard, card_n: $card_n,go_menu: go_menu,cur_card: $cur_card)
             }
         
         }

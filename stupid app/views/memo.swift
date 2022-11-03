@@ -1,10 +1,32 @@
 import SwiftUI
 
 struct memo_view: View {
-    @Binding var cur_card: Card
+    @Binding var flashcard: Flashcard
+    @Binding var card_n: Int
     let go_menu: () -> Void
-    let prev_card: () -> Void
-    let next_card: () -> Void
+    @Binding var cur_card: Card
+    
+    func update_card() {
+        cur_card = Flashcard_function.get_card(flashcard, card_n)
+    }
+    
+    func mod(_ a: Int, _ n: Int) -> Int {
+        precondition(n > 0, "modulus must be positive")
+        let r = a % n
+        return r >= 0 ? r : r + n
+    }
+    
+    func next_card() {
+        card_n += 1
+        card_n = mod(card_n,Flashcard_function.size(flashcard))
+        update_card()
+    }
+    
+    func prev_card() {
+        card_n -= 1
+        card_n = mod(card_n,Flashcard_function.size(flashcard))
+        update_card()
+    }
     
     var body: some View {
         Button(action: {go_menu()}){
