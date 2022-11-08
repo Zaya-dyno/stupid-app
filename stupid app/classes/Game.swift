@@ -2,22 +2,28 @@ import Foundation
 
 class Game{
     var cards:Flashcard = Flashcard()
-    var score = 0
+    var possible:[Int] = []
     
     init (){
     }
     
     init(cards:Flashcard) {
         self.cards = cards
+        self.possible = cards.range
     }
     
     func next_game(game_ins: inout Game_instance){
+        if possible.count <= 0 {
+            game_ins.card.sound = "Guessed every card"
+            return
+        }
+        let cor_id = Int.random(in:0..<possible.count)
+        game_ins.card = cards.cards[possible[cor_id]]
+        var used:[Int] = [possible[cor_id]]
+        possible.remove(at: cor_id)
         game_ins.guessed = false
-        var used:[Int] = []
-        game_ins.card = Flashcard_function.get_random_card(cards)
-        used.append(game_ins.card.id)
         var guesses:[Card] = []
-        for _ in 1...3{
+        while guesses.count < 3 {
             var tmp = Flashcard_function.get_random_card(cards)
             while used.contains(tmp.id) {
                 tmp = Flashcard_function.get_random_card(cards)

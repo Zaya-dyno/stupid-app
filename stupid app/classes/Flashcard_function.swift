@@ -85,5 +85,4 @@ class Flashcard_function {
         let id:Int = Int.random(in:0..<(size(flashcard)))
         return flashcard.cards[flashcard.range[id]]
     }
-    
 }
